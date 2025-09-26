@@ -1,0 +1,55 @@
+body {
+    background-color: #f3f5e9;
+    font: 1rem "Fira Sans",sans-serif;
+    color: #91a189;
+}
+
+#wrapper {
+    text-align: center;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+}
+div.types {
+    display: flex;
+    justify-content: center;
+}
+p.types {
+    width: 130px;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+div.main-word {
+    margin: 0 auto;
+    text-align: center;
+    width: 200px;
+    border: 2px solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+input.main-word {
+    margin-bottom: 16px;
+    width: 10px;
+    background-color: #f3f5e9;
+    border-radius: 5px;
+}
+div.word-counter {
+    margin: 0 auto;
+    text-align: center;
+    width: 200px;
+    border: 2px solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+div.previous-word {
+    margin: 0 auto;
+    text-align: center;
+    width: 200px;
+    border: 2px solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

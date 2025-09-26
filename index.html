@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Сайт</h1>
+        <div class="types">
+            <!-- <p id="type" class="types"></p> -->
+            <p id="typeA" class="types">Словарные</p>
+            <p id="typeB" class="types">Чередующиеся корни</p>
+            <p id="typeC" class="types">Проверяемые корни</p>
+            <p id="typeD" class="types">И/Ы после приставки</p>
+            <p id="typeE" class="types">Ь/Ъ после приставки</p>
+            <p id="typeF" class="types"></p>
+            <p id="typeG" class="types">Е/О после шипящих</p>
+        </div>
+        <div class="main-word">
+            <form id="answerForm">
+                <p class="main-word" id="word"></p>
+                <input id="answer" class="main-word" type="text" maxlength="1" autofocus autocomplete="off">
+            </form>
+        </div>
+        <div class="word-counter">
+            <p id="answerQty">Ответов: 0</p>
+            <p id="correctAnswerQty">Правильных: 0</p>
+            <p id="wrongAnswerQty">Неправильных: 0</p>
+        </div>
+        <div class="previous-word">
+            <p id="previousWord">Предыдущее слово: </p>
+        </div>
+    </div>
+    <script src="index.js" type="module"></script>
+    <script src="dicts.js" type="module"></script>
+</body>
+</html>
