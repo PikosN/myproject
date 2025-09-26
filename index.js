@@ -22,13 +22,13 @@ let form = document.getElementById('answerForm')
 
 const createWord = function () {
 
-    // Отображение предыдущего слова
+
     document.getElementById('previousWord').textContent = `Предыдущее слово: ${document.getElementById('word').textContent}`
     // Объявление переменной равной случайному слову из списка слов
     const word = words[Math.floor(Math.random() * words.length)]
-    // Отображение слова
+
     try { document.getElementById('word').textContent = word.text } catch { }
-    // Костыль какой-то
+
     try { correctLetter = word.letter } catch { }
 }
 
@@ -134,4 +134,5 @@ document.getElementById('typeG').onclick = function () {
         createWord()
         document.getElementById('typeG').style.color = '#91a189'
     }
+
 }
