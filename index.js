@@ -1,10 +1,10 @@
 import { typeA, typeB, typeC, typeD, typeE, typeF, typeG } from './dicts.js';
-
+// список слов по выбранным темам
 let words = [
     // {text: '', letter: ''},
 
 ]
-
+// Есть ли тема в списке words
 let valueA = false
 let valueB = false
 let valueC = false
@@ -12,47 +12,60 @@ let valueD = false
 let valueE = false
 let valueF = false
 let valueG = false
-
+// количество ответов
 let answerQty = 0
 let correctAnswerQty = 0
 let wrongAnswerQty = 0
-let correctLetter = ''
+// правильный ответ
+let correctLetter = '--'
 
-let form = document.getElementById('answerForm')
-
+// функция выбора рандомного слова из списка words
 const createWord = function () {
-
-
+    // Отображение предыдущего слова
     document.getElementById('previousWord').textContent = `Предыдущее слово: ${document.getElementById('word').textContent}`
     // Объявление переменной равной случайному слову из списка слов
     const word = words[Math.floor(Math.random() * words.length)]
-
+    // Отображение слова
     try { document.getElementById('word').textContent = word.text } catch { }
-
+    // корректный ответ к этому слову
     try { correctLetter = word.letter } catch { }
 }
-
-form.addEventListener("submit", (event) => {
+// функция выполняемая при введении ответа
+document.getElementById('answerForm').addEventListener("submit", (event) => {
+    // удаление перезагрузки после введения ответа
     event.preventDefault()
+    // увеличение количества ответов на 1 и их отображение
     answerQty += 1
     document.getElementById('answerQty').textContent = `Ответов: ${answerQty}`
+    // если ответ правильный, то увеличение количества правильных ответов на 1 и их отображение
     if ((document.getElementById('answer').value).toLowerCase() === correctLetter) {
         correctAnswerQty += 1
         document.getElementById('correctAnswerQty').textContent = `Правильных: ${correctAnswerQty}`
+        // присвоение зеленого цвета правильным ответам
         document.getElementById('correctAnswerQty').style.color = 'green'
+        // присвоение стандартного цвета неправильным ответам
         document.getElementById('wrongAnswerQty').style.color = '#91a189'
     } else {
+        // если ответ неправильный, то увеличение количества неправильных ответов на 1 и их отображение
         wrongAnswerQty += 1
         document.getElementById('wrongAnswerQty').textContent = `Неправильных: ${wrongAnswerQty}`
+        // присвоение красного цвета неправильным ответам
         document.getElementById('wrongAnswerQty').style.color = 'red'
+        // присвоение стандартного цвета правильным ответам
         document.getElementById('correctAnswerQty').style.color = '#91a189'
     }
+    // выбор следующего слова
     createWord()
+    // удаление предыдущего ответа в поле ввода
     document.getElementById('answer').value = ''
 })
 
+
+
+// функции выбора темы при клике
 document.getElementById('typeA').onclick = function () {
     valueA = !valueA
+    
     if (valueA) {
         words = words.concat(typeA)
         createWord()
@@ -62,6 +75,7 @@ document.getElementById('typeA').onclick = function () {
         createWord()
         document.getElementById('typeA').style.color = '#91a189'
     }
+    hasType()
 }
 document.getElementById('typeB').onclick = function () {
     valueB = !valueB
@@ -74,6 +88,7 @@ document.getElementById('typeB').onclick = function () {
         createWord()
         document.getElementById('typeB').style.color = '#91a189'
     }
+    hasType()
 }
 document.getElementById('typeC').onclick = function () {
     valueC = !valueC
@@ -86,6 +101,7 @@ document.getElementById('typeC').onclick = function () {
         createWord()
         document.getElementById('typeC').style.color = '#91a189'
     }
+    hasType()
 }
 document.getElementById('typeD').onclick = function () {
     valueD = !valueD
@@ -98,6 +114,7 @@ document.getElementById('typeD').onclick = function () {
         createWord()
         document.getElementById('typeD').style.color = '#91a189'
     }
+    hasType()
 }
 document.getElementById('typeE').onclick = function () {
     valueE = !valueE
@@ -110,6 +127,7 @@ document.getElementById('typeE').onclick = function () {
         createWord()
         document.getElementById('typeE').style.color = '#91a189'
     }
+    hasType()
 }
 document.getElementById('typeF').onclick = function () {
     valueF = !valueF
@@ -122,6 +140,7 @@ document.getElementById('typeF').onclick = function () {
         createWord()
         document.getElementById('typeF').style.color = '#91a189'
     }
+    hasType()
 }
 document.getElementById('typeG').onclick = function () {
     valueG = !valueG
@@ -134,5 +153,16 @@ document.getElementById('typeG').onclick = function () {
         createWord()
         document.getElementById('typeG').style.color = '#91a189'
     }
+    hasType()
+}
 
+const hasType = function () {
+    if (valueA || valueB || valueC || valueD || valueE || valueF || valueG === true) {
+        document.getElementById('answer').style.visibility='visible'
+        document.getElementById('alert').textContent = ''
+    } else {
+        document.getElementById('answer').style.visibility='hidden'
+        document.getElementById('word').textContent = ''
+        document.getElementById('alert').textContent = 'Выберите тему!'
+    }
 }
