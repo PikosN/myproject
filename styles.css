@@ -23,6 +23,10 @@ p.types {
     border-radius: 5px;
     padding: 5px;
 }
+p.alert {
+    display: block;
+    height: 18.67px;
+}
 div.main-word {
     margin: 0 auto;
     text-align: center;
@@ -30,12 +34,14 @@ div.main-word {
     border: 2px solid;
     border-radius: 5px;
     margin-bottom: 10px;
+    height: 88px;
 }
 input.main-word {
     margin-bottom: 16px;
     width: 10px;
     background-color: #f3f5e9;
     border-radius: 5px;
+        visibility: hidden;
 }
 div.word-counter {
     margin: 0 auto;
@@ -52,4 +58,8 @@ div.previous-word {
     border: 2px solid;
     border-radius: 5px;
     margin-bottom: 10px;
+    height: 69.33px;
+}
+p.previous-word {
+    max-width: 199px;
 }
