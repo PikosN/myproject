@@ -18,7 +18,6 @@ let correctAnswerQty = 0
 let wrongAnswerQty = 0
 // правильный ответ
 let correctLetter = '--'
-
 // функция выбора рандомного слова из списка words
 const createWord = function () {
     // Отображение предыдущего слова
@@ -59,9 +58,6 @@ document.getElementById('answerForm').addEventListener("submit", (event) => {
     // удаление предыдущего ответа в поле ввода
     document.getElementById('answer').value = ''
 })
-
-
-
 // функции выбора темы при клике
 document.getElementById('typeA').onclick = function () {
     valueA = !valueA
@@ -155,7 +151,6 @@ document.getElementById('typeG').onclick = function () {
     }
     hasType()
 }
-
 const hasType = function () {
     if (valueA || valueB || valueC || valueD || valueE || valueF || valueG === true) {
         document.getElementById('answer').style.visibility='visible'
