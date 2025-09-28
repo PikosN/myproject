@@ -190,7 +190,7 @@ const typeA = [
     { text: 'выр_внять(подлине)', letter: 'о' },
     { text: 'пок_яние', letter: 'а' },
     { text: 'скр_петь', letter: 'и' },
-    { text: 'скр_пя(сердце)', letter: 'и' },
+    { text: 'скр_пя(сердце)', letter: 'е' },
     { text: 'скр_вить', letter: 'и' },
     { text: 'тр_петать', letter: 'е' },
     { text: 'пос_деть(кстарости)', letter: 'е' },
@@ -304,4 +304,5 @@ const typeG = [
     { text: 'деш_вый', letter: 'е' },
 ]
 // экспорт
+
 export { typeA, typeB, typeC, typeD, typeE, typeF, typeG }
