@@ -156,7 +156,7 @@ document.getElementById('typeG').onclick = function () {
     if (valueG) {
         words = words.concat(typeG)
         createWord()
-        document.getElementById('typeG').style.backgroundColor = '#008000'
+        document.getElementById('typeG').style.color = '#008000'
     } else {
         words = words.filter((item) => !typeG.includes(item))
         createWord()
@@ -164,4 +164,5 @@ document.getElementById('typeG').onclick = function () {
     }
     hasType()
 }
+
 
