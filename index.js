@@ -22,7 +22,7 @@ let correctLetter = '--'
 // функция выбора рандомного слова из списка words
 const createWord = function () {
     // Отображение предыдущего слова
-    document.getElementById('previousWord').textContent = `Предыдущее слово: ${document.getElementById('word').textContent}`
+    document.getElementById('previousWord').textContent = `Предыдущее слово:  ${document.getElementById('word').textContent}`
     // Объявление переменной равной случайному слову из списка слов
     const word = words[Math.floor(Math.random() * words.length)]
     // Отображение слова

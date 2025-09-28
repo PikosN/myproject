@@ -11,8 +11,8 @@ h1 {
     display: flex;
     justify-content: center;
 }
-h2.types-info {
-    margin-bottom: 0px;
+p.types-info {
+    margin-bottom: 2px;
 }
 div.types {
     display: flex;
@@ -33,7 +33,7 @@ hr {
     height: 0.1rem;
     background-color: black;
     margin-top: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 24px ;
 }
 p.alert {
     /* display: block;
@@ -43,36 +43,42 @@ p.alert {
 div.main-word {
     margin: 0 auto;
     text-align: center;
-    width: 200px;
+    width: 300px;
     border: 2px solid;
     border-radius: 5px;
     margin-bottom: 10px;
-    height: 88px;
+    height: 132px;
+    font: 1.5rem "Fira Sans",sans-serif;
 }
 input.main-word {
+    text-align: center;
     margin-bottom: 16px;
-    width: 10px;
+    width: 1.5rem;
     /* background-color: #f3f5e9; */
     border-radius: 5px;
     visibility: hidden;
+    font: 1.5rem "Fira Sans",sans-serif;
+    
 }
 div.word-counter {
     margin: 0 auto;
     text-align: center;
-    width: 200px;
+    width: 300px;
     border: 2px solid;
     border-radius: 5px;
     margin-bottom: 10px;
+    font: 1.5rem "Fira Sans",sans-serif;
 }
 div.previous-word {
     margin: 0 auto;
     text-align: center;
-    width: 200px;
+    width: 300px;
     border: 2px solid;
     border-radius: 5px;
     margin-bottom: 10px;
-    height: 69.33px;
+    height: 103.995px;
+    font: 1.5rem "Fira Sans",sans-serif;
 }
-p.previous-word {
-    max-width: 199px;
-}
+/* p.previous-word {
+    
+} */
