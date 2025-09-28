@@ -11,6 +11,9 @@ h1 {
     display: flex;
     justify-content: center;
 }
+h2.types-info {
+    margin-bottom: 0px;
+}
 div.types {
     display: flex;
     justify-content: center;
@@ -18,15 +21,24 @@ div.types {
 }
 p.types {
     width: 130px;
-    margin-left: 1  rem;
-    margin-right: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 1px;
+    margin-top: 1px;
     border: 2px solid;
     border-radius: 5px;
     padding: 5px;
 }
+hr {
+    height: 0.1rem;
+    background-color: black;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
 p.alert {
-    display: block;
-    height: 18.67px;
+    /* display: block;
+    height: 18.67px; */
+    font-style: italic;
 }
 div.main-word {
     margin: 0 auto;

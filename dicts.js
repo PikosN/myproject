@@ -304,5 +304,4 @@ const typeG = [
     { text: 'деш_вый', letter: 'е' },
 ]
 // экспорт
-
 export { typeA, typeB, typeC, typeD, typeE, typeF, typeG }

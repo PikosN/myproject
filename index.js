@@ -67,7 +67,7 @@ const hasType = function () {
     } else {
         document.getElementById('answer').style.visibility='hidden'
         document.getElementById('word').textContent = ''
-        document.getElementById('alert').textContent = 'Выберите тему!'
+        document.getElementById('alert').textContent = 'Выберите тему'
     }
 }
 
@@ -164,5 +164,4 @@ document.getElementById('typeG').onclick = function () {
     }
     hasType()
 }
-
 
