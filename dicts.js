@@ -1,3 +1,4 @@
+// A Словарные слова
 const typeA = [
     { text: 'г_потеза', letter: 'и' },
     { text: 'г_роизм', letter: 'е' },
@@ -239,7 +240,7 @@ const typeA = [
     { text: 'покл_ниться', letter: 'о' },
     { text: 'пропол_скать(бельё)', letter: 'о' },
     { text: 'г_ризонтальный', letter: 'о' },
-    { text: 'расст_лать(скатерть)', letter: 'е' },
+    { text: 'расст_лать(скатерть)', letter: 'и' },
     { text: 'разб_раться', letter: 'и' },
     { text: 'ут_хать', letter: 'и' },
     { text: 'выт_рать', letter: 'и' },
@@ -268,39 +269,39 @@ const typeA = [
     { text: 'в_пиющий(случай)', letter: 'о' },
     { text: 'прож_вать(пищу)', letter: 'е' },
     { text: 'ут_плённая(куртка)', letter: 'е' },
-    { text: 'д_сантироваться', letter: 'е' }
+    { text: 'д_сантироваться', letter: 'е' },
+    { text: '_нчоус', letter: 'а' },
+    { text: '_укцион', letter: 'а' },
+    { text: 'апп_тит', letter: 'е' },
 ]
-
+// B Чередующиеся корни
 const typeB = [
     { text: 'заб_рать', letter: 'и' },
     { text: 'зам_р', letter: 'е' },
 ]
-
+// C Проверяемые корни
 const typeC = [
     { text: 'ч_стоплотный', letter: 'и' },
     { text: 'ч_столюбивый', letter: 'е' },
     { text: 'ст_листический', letter: 'и' },
     { text: 'ув_дание(цветов)', letter: 'я' },
     { text: 'сист_матизация', letter: 'е' },
-    { text: 'апп_тит', letter: 'е' },
-    { text: '_укцион', letter: 'а' },
-    { text: '_нчоус', letter: 'а' },
 ]
-
+// D Ы/И после приставок
 const typeD = [
 
 ]
-
+// E Ъ/Ь после приставок
 const typeE = [
     { text: 'под_езд', letter: 'ъ' },
 ]
-
+// F 
 const typeF = [
 
 ]
-
+// G Е/О после шипящих
 const typeG = [
     { text: 'деш_вый', letter: 'е' },
 ]
-
+// экспорт
 export { typeA, typeB, typeC, typeD, typeE, typeF, typeG }

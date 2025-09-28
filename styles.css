@@ -1,7 +1,7 @@
 body {
-    background-color: #f3f5e9;
+    /* background-color: #f3f5e9; */
     font: 1rem "Fira Sans",sans-serif;
-    color: #91a189;
+    /* color: #91a189; */
 }
 
 #wrapper {
@@ -14,11 +14,12 @@ h1 {
 div.types {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 p.types {
     width: 130px;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin-left: 1  rem;
+    margin-right: 1rem;
     border: 2px solid;
     border-radius: 5px;
     padding: 5px;
@@ -39,9 +40,9 @@ div.main-word {
 input.main-word {
     margin-bottom: 16px;
     width: 10px;
-    background-color: #f3f5e9;
+    /* background-color: #f3f5e9; */
     border-radius: 5px;
-        visibility: hidden;
+    visibility: hidden;
 }
 div.word-counter {
     margin: 0 auto;

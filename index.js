@@ -18,6 +18,7 @@ let correctAnswerQty = 0
 let wrongAnswerQty = 0
 // правильный ответ
 let correctLetter = '--'
+
 // функция выбора рандомного слова из списка words
 const createWord = function () {
     // Отображение предыдущего слова
@@ -43,7 +44,7 @@ document.getElementById('answerForm').addEventListener("submit", (event) => {
         // присвоение зеленого цвета правильным ответам
         document.getElementById('correctAnswerQty').style.color = 'green'
         // присвоение стандартного цвета неправильным ответам
-        document.getElementById('wrongAnswerQty').style.color = '#91a189'
+        document.getElementById('wrongAnswerQty').style.color = 'black'
     } else {
         // если ответ неправильный, то увеличение количества неправильных ответов на 1 и их отображение
         wrongAnswerQty += 1
@@ -51,106 +52,14 @@ document.getElementById('answerForm').addEventListener("submit", (event) => {
         // присвоение красного цвета неправильным ответам
         document.getElementById('wrongAnswerQty').style.color = 'red'
         // присвоение стандартного цвета правильным ответам
-        document.getElementById('correctAnswerQty').style.color = '#91a189'
+        document.getElementById('correctAnswerQty').style.color = 'black'
     }
     // выбор следующего слова
     createWord()
     // удаление предыдущего ответа в поле ввода
     document.getElementById('answer').value = ''
 })
-// функции выбора темы при клике
-document.getElementById('typeA').onclick = function () {
-    valueA = !valueA
-    
-    if (valueA) {
-        words = words.concat(typeA)
-        createWord()
-        document.getElementById('typeA').style.color = '#b3b183'
-    } else {
-        words = words.filter((item) => !typeA.includes(item))
-        createWord()
-        document.getElementById('typeA').style.color = '#91a189'
-    }
-    hasType()
-}
-document.getElementById('typeB').onclick = function () {
-    valueB = !valueB
-    if (valueB) {
-        words = words.concat(typeB)
-        createWord()
-        document.getElementById('typeB').style.color = '#b3b183'
-    } else {
-        words = words.filter((item) => !typeB.includes(item))
-        createWord()
-        document.getElementById('typeB').style.color = '#91a189'
-    }
-    hasType()
-}
-document.getElementById('typeC').onclick = function () {
-    valueC = !valueC
-    if (valueC) {
-        words = words.concat(typeC)
-        createWord()
-        document.getElementById('typeC').style.color = '#b3b183'
-    } else {
-        words = words.filter((item) => !typeC.includes(item))
-        createWord()
-        document.getElementById('typeC').style.color = '#91a189'
-    }
-    hasType()
-}
-document.getElementById('typeD').onclick = function () {
-    valueD = !valueD
-    if (valueD) {
-        words = words.concat(typeD)
-        createWord()
-        document.getElementById('typeD').style.color = '#b3b183'
-    } else {
-        words = words.filter((item) => !typeD.includes(item))
-        createWord()
-        document.getElementById('typeD').style.color = '#91a189'
-    }
-    hasType()
-}
-document.getElementById('typeE').onclick = function () {
-    valueE = !valueE
-    if (valueE) {
-        words = words.concat(typeE)
-        createWord()
-        document.getElementById('typeE').style.color = '#b3b183'
-    } else {
-        words = words.filter((item) => !typeE.includes(item))
-        createWord()
-        document.getElementById('typeE').style.color = '#91a189'
-    }
-    hasType()
-}
-document.getElementById('typeF').onclick = function () {
-    valueF = !valueF
-    if (valueF) {
-        words = words.concat(typeF)
-        createWord()
-        document.getElementById('typeF').style.color = '#b3b183'
-    } else {
-        words = words.filter((item) => !typeF.includes(item))
-        createWord()
-        document.getElementById('typeF').style.color = '#91a189'
-    }
-    hasType()
-}
-document.getElementById('typeG').onclick = function () {
-    valueG = !valueG
-    if (valueG) {
-        words = words.concat(typeG)
-        createWord()
-        document.getElementById('typeG').style.color = '#b3b183'
-    } else {
-        words = words.filter((item) => !typeG.includes(item))
-        createWord()
-        document.getElementById('typeG').style.color = '#91a189'
-    }
-    hasType()
-}
+// функция проверки есть ли хоть 1 выбранная тема, если true, то появляется поле ввода, если false, то поле ввода скрывается и появляется надпись "выберите тему"
 const hasType = function () {
     if (valueA || valueB || valueC || valueD || valueE || valueF || valueG === true) {
         document.getElementById('answer').style.visibility='visible'
@@ -161,3 +70,98 @@ const hasType = function () {
         document.getElementById('alert').textContent = 'Выберите тему!'
     }
 }
+
+// функции выбора темы при клике
+document.getElementById('typeA').onclick = function () {
+    valueA = !valueA
+    
+    if (valueA) {
+        words = words.concat(typeA)
+        createWord()
+        document.getElementById('typeA').style.color = '#008000'
+    } else {
+        words = words.filter((item) => !typeA.includes(item))
+        createWord()
+        document.getElementById('typeA').style.color = 'black'
+    }
+    hasType()
+}
+document.getElementById('typeB').onclick = function () {
+    valueB = !valueB
+    if (valueB) {
+        words = words.concat(typeB)
+        createWord()
+        document.getElementById('typeB').style.color = '#008000'
+    } else {
+        words = words.filter((item) => !typeB.includes(item))
+        createWord()
+        document.getElementById('typeB').style.color = 'black'
+    }
+    hasType()
+}
+document.getElementById('typeC').onclick = function () {
+    valueC = !valueC
+    if (valueC) {
+        words = words.concat(typeC)
+        createWord()
+        document.getElementById('typeC').style.color = '#008000'
+    } else {
+        words = words.filter((item) => !typeC.includes(item))
+        createWord()
+        document.getElementById('typeC').style.color = 'black'
+    }
+    hasType()
+}
+document.getElementById('typeD').onclick = function () {
+    valueD = !valueD
+    if (valueD) {
+        words = words.concat(typeD)
+        createWord()
+        document.getElementById('typeD').style.color = '#008000'
+    } else {
+        words = words.filter((item) => !typeD.includes(item))
+        createWord()
+        document.getElementById('typeD').style.color = 'black'
+    }
+    hasType()
+}
+document.getElementById('typeE').onclick = function () {
+    valueE = !valueE
+    if (valueE) {
+        words = words.concat(typeE)
+        createWord()
+        document.getElementById('typeE').style.color = '#008000'
+    } else {
+        words = words.filter((item) => !typeE.includes(item))
+        createWord()
+        document.getElementById('typeE').style.color = 'black'
+    }
+    hasType()
+}
+document.getElementById('typeF').onclick = function () {
+    valueF = !valueF
+    if (valueF) {
+        words = words.concat(typeF)
+        createWord()
+        document.getElementById('typeF').style.color = '#008000'
+    } else {
+        words = words.filter((item) => !typeF.includes(item))
+        createWord()
+        document.getElementById('typeF').style.color = 'black'
+    }
+    hasType()
+}
+document.getElementById('typeG').onclick = function () {
+    valueG = !valueG
+    if (valueG) {
+        words = words.concat(typeG)
+        createWord()
+        document.getElementById('typeG').style.backgroundColor = '#008000'
+    } else {
+        words = words.filter((item) => !typeG.includes(item))
+        createWord()
+        document.getElementById('typeG').style.color = 'black'
+    }
+    hasType()
+}
+
