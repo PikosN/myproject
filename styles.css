@@ -1,5 +1,5 @@
 body {
-    /* background-color: #f3f5e9; */
+    background-color: #f3f5e9;
     font: 1rem "Fira Sans",sans-serif;
     /* color: #91a189; */
 }
@@ -54,11 +54,10 @@ input.main-word {
     text-align: center;
     margin-bottom: 16px;
     width: 1.5rem;
-    /* background-color: #f3f5e9; */
+    background-color: #f3f5e9;
     border-radius: 5px;
     visibility: hidden;
     font: 1.5rem "Fira Sans",sans-serif;
-    
 }
 div.word-counter {
     margin: 0 auto;
