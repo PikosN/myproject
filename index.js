@@ -9,6 +9,8 @@ let wrongAnswerQty = 0
 let correctLetter = '--'
 // выбраны ли темы
 let isTypes = false
+// слово для удаления
+// let deleteWord = ''
 // функция определяющая выбрана ли тема
 function isTypesFunc() {
     if (Object.values(buttonsState).includes(true)) {
@@ -54,6 +56,11 @@ buttons.forEach(function(item) {
     }
 })
 // создание функции при введении ответа
+document.getElementById('answer').addEventListener('input', function() {
+    if ((document.getElementById('answer').value).toLowerCase() === 'ё') {
+        document.getElementById('answer').value = 'е'
+    }
+})
 document.getElementById('answerForm').addEventListener('submit', function() {
     event.preventDefault()
     answerQty += 1
@@ -65,6 +72,8 @@ document.getElementById('answerForm').addEventListener('submit', function() {
         document.getElementById('correctAnswerQty').style.color = 'green'
         // присвоение стандартного цвета неправильным ответам
         document.getElementById('wrongAnswerQty').style.color = 'black'
+        // удаление правильно отвеченного слова
+        // 
         } else {
         // если ответ неправильный, то увеличение количества неправильных ответов на 1 и их отображение
         wrongAnswerQty += 1
