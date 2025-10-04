@@ -507,8 +507,7 @@ const typeF = [
 // G Е/О после шипящих
 const typeG = [
     { text: 'деш..вый', letter: 'е' },
-    { text: 'к..фейный', letter: 'о' },
-    { text: 'ог..рчаться', letter: 'о' },
 ]
 // экспорт
+
 export { typeA, typeB, typeC, typeD, typeE, typeF, typeG }
