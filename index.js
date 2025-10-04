@@ -14,8 +14,9 @@ let words = []
 let answerQty = 0
 let correctAnswerQty = 0
 let wrongAnswerQty = 0
-// правильный ответ
+// прошлое слово и правильный ответ
 let correctLetter = ''
+let previousWord = ''
 // выбраны ли темы
 let isTypes = false
 // слово для удаления
@@ -52,11 +53,13 @@ function isTypesFunc() {
 } 
 // случайное слово из выбранных тем + отображение прошлого слова + внесение в переменную правильного ответа
 function newWord() {
-    document.getElementById('previousWord').textContent = `Предыдущее слово:  ${document.getElementById('word').textContent}`
-    document.getElementById('previousLetter').textContent = `Правильная буква:  ${correctLetter}`
+    document.getElementById('previousWord').textContent = `Предыдущее слово:  ${previousWord}`
+    
+    document.getElementById('previousLetter').textContent = `Правильная буква:  ${correctLetter}`
     let word = words[Math.floor(Math.random() * (words.length))]
     try {document.querySelector('#word').textContent = word.text} catch {}
     try {correctLetter = word.letter} catch {}
+    previousWord = document.getElementById('word').textContent
     try {deleteWord = word.text} catch {}
 }
 // список из кнопок из index.html
