@@ -335,11 +335,11 @@ const typeA = [
     { text: 'к..ндидат', letter: 'а' },
     { text: 'к..лач', letter: 'а' },
     { text: 'отв..рять (ворота)', letter: 'о' },
-    { text: 'подг..ревший', letter: 'о' },
     { text: 'об..няние', letter: 'о' },
 ]
 // B Чередующиеся корни
 const typeB = [
+    { text: 'подг..ревший', letter: 'о' },
     { text: 'расст..лающийся(туман)', letter: 'и' },
     { text: 'расст..лать(скатерть)', letter: 'и' },
     { text: 'выт..реть(стол)', letter: 'и' },
@@ -445,7 +445,6 @@ const typeC = [
     { text: 'отв..рить (овощи)', letter: 'а' },
     { text: 'г..ревать', letter: 'о' },
     { text: 'к..сички ', letter: 'о' },
-    { text: 'ст..листический', letter: 'и' },
     { text: 'просм..треть', letter: 'о' },
     { text: 'м..рячок', letter: 'о' },
     { text: 'д..ревья', letter: 'е' },
@@ -508,6 +507,8 @@ const typeF = [
 // G Е/О после шипящих
 const typeG = [
     { text: 'деш..вый', letter: 'е' },
+    { text: 'к..фейный', letter: 'о' },
+    { text: 'ог..рчаться', letter: 'о' },
 ]
 // экспорт
 export { typeA, typeB, typeC, typeD, typeE, typeF, typeG }

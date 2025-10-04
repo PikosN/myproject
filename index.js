@@ -1,16 +1,39 @@
 import { typeA, typeB, typeC, typeD, typeE, typeF, typeG } from './dicts.js';
 // список выбранных слов
+const allWords = {
+    typeA,
+    typeB,
+    typeC,
+    typeD,
+    typeE,
+    typeF,
+    typeG,
+}
 let words = []
 // счетчики слов
 let answerQty = 0
 let correctAnswerQty = 0
 let wrongAnswerQty = 0
 // правильный ответ
-let correctLetter = '--'
+let correctLetter = ''
 // выбраны ли темы
 let isTypes = false
 // слово для удаления
-// let deleteWord = ''
+let deleteWord = ''
+// есть ли слова в массиве
+function isWordsFunc() {
+    if (words.length === 0) {
+        document.getElementById('answer').style.visibility = 'hidden'
+        document.getElementById('alert').textContent = 'Вы правильно написали все слова!'
+        document.getElementById('word').textContent = ''
+        
+        buttons.forEach(button => button.style.color = 'black')
+        for (const a in buttonsState) {
+            buttonsState[a] = false
+        }
+    }
+}
+
 // функция определяющая выбрана ли тема
 function isTypesFunc() {
     if (Object.values(buttonsState).includes(true)) {
@@ -30,9 +53,11 @@ function isTypesFunc() {
 // случайное слово из выбранных тем + отображение прошлого слова + внесение в переменную правильного ответа
 function newWord() {
     document.getElementById('previousWord').textContent = `Предыдущее слово:  ${document.getElementById('word').textContent}`
+    document.getElementById('previousLetter').textContent = `Правильная буква:  ${correctLetter}`
     let word = words[Math.floor(Math.random() * (words.length))]
     try {document.querySelector('#word').textContent = word.text} catch {}
     try {correctLetter = word.letter} catch {}
+    try {deleteWord = word.text} catch {}
 }
 // список из кнопок из index.html
 const buttons = document.querySelectorAll('p.types')
@@ -42,25 +67,29 @@ const buttonsState = {}
 buttons.forEach((item) => buttonsState[item.id] = false)
 // создание функций при нажатии для кнопок
 buttons.forEach(function(item) {
-    document.getElementById(item.id).onclick = function () {
+    item.onclick = function () {
         buttonsState[item.id] = !buttonsState[item.id]
         if (buttonsState[item.id]) {
-            words = words.concat(eval(item.id))
-            document.getElementById(item.id).style.color = 'green'
+            words = words.concat(allWords[item.id])
+            item.style.color = 'green'
         } else {
-            words = words.filter(a => !eval(item.id).includes(a))
-            document.getElementById(item.id).style.color = 'black'
+            words = words.filter(a => !allWords[item.id].includes(a))
+            item.style.color = 'black'
         }
         newWord()
         isTypesFunc()
     }
 })
-// создание функции при введении ответа
+// ЗАМЕНА Ё НА Е В ПОЛЕ ОТВЕТА
 document.getElementById('answer').addEventListener('input', function() {
     if ((document.getElementById('answer').value).toLowerCase() === 'ё') {
         document.getElementById('answer').value = 'е'
     }
+    if ((document.getElementById('answer').value).toLowerCase() === ' ') {
+        document.getElementById('answer').value = ''
+    }
 })
+// создание функции при введении ответа
 document.getElementById('answerForm').addEventListener('submit', function() {
     event.preventDefault()
     answerQty += 1
@@ -73,7 +102,11 @@ document.getElementById('answerForm').addEventListener('submit', function() {
         // присвоение стандартного цвета неправильным ответам
         document.getElementById('wrongAnswerQty').style.color = 'black'
         // удаление правильно отвеченного слова
-        // 
+        words = words.filter(item => {
+            return item.text != deleteWord
+        })
+        isTypesFunc()
+        isWordsFunc()
         } else {
         // если ответ неправильный, то увеличение количества неправильных ответов на 1 и их отображение
         wrongAnswerQty += 1

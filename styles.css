@@ -75,9 +75,6 @@ div.previous-word {
     border: 2px solid;
     border-radius: 5px;
     margin-bottom: 10px;
-    height: 103.995px;
+    /* height: 103.995px; */
     font: 1.5rem "Fira Sans",sans-serif;
 }
-/* p.previous-word {
-    
-} */
