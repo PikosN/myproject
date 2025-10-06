@@ -131,3 +131,4 @@ document.getElementById('answerForm').addEventListener('submit', function() {
     newWord()
     elements.answer.value = ''
 })
+console.log('Message')
