@@ -21,12 +21,27 @@ let previousWord = ''
 let isTypes = false
 // слово для удаления
 let deleteWord = ''
+// список из кнопок из index.html
+const buttons = document.querySelectorAll('p.types')
+// объект с состояниями кнопок: нажата или нет
+const buttonsState = {}
+// присвоение каждой кнопке состояния не нажата
+buttons.forEach((item) => buttonsState[item.id] = false)
+// список элементов
+const elements = {
+    answer: document.getElementById('answer'),
+    alert: document.getElementById('alert'),
+    word: document.getElementById('word'),
+    correctAnswerQty: document.getElementById('correctAnswerQty'),
+    wrongAnswerQty: document.getElementById('wrongAnswerQty'),
+    answerQty: document.getElementById('answerQty'),
+}
 // есть ли слова в массиве
 function isWordsFunc() {
     if (words.length === 0) {
-        document.getElementById('answer').style.visibility = 'hidden'
-        document.getElementById('alert').textContent = 'Вы правильно написали все слова!'
-        document.getElementById('word').textContent = ''
+        elements.answer.style.visibility = 'hidden'
+        elements.alert.textContent = 'Вы правильно написали все слова!'
+        elements.word.textContent = ''
         
         buttons.forEach(button => button.style.color = 'black')
         for (const a in buttonsState) {
@@ -43,12 +58,12 @@ function isTypesFunc() {
         isTypes = false
     }
     if (isTypes) {
-        document.getElementById('answer').style.visibility = 'visible'
-        document.getElementById('alert').textContent = ''
+        elements.answer.style.visibility = 'visible'
+        elements.alert.textContent = ''
     } else {
-        document.getElementById('answer').style.visibility = 'hidden'
-        document.getElementById('alert').textContent = 'Выберите тему'
-        document.getElementById('word').textContent = ''
+        elements.answer.style.visibility = 'hidden'
+        elements.alert.textContent = 'Выберите тему'
+        elements.word.textContent = ''
     }
 } 
 // случайное слово из выбранных тем + отображение прошлого слова + внесение в переменную правильного ответа
@@ -62,12 +77,6 @@ function newWord() {
     previousWord = document.getElementById('word').textContent
     try {deleteWord = word.text} catch {}
 }
-// список из кнопок из index.html
-const buttons = document.querySelectorAll('p.types')
-// объект с состояниями кнопок: нажата или нет
-const buttonsState = {}
-// присвоение каждой кнопке состояния не нажата
-buttons.forEach((item) => buttonsState[item.id] = false)
 // создание функций при нажатии для кнопок
 buttons.forEach(function(item) {
     item.onclick = function () {
@@ -84,26 +93,26 @@ buttons.forEach(function(item) {
     }
 })
 // ЗАМЕНА Ё НА Е В ПОЛЕ ОТВЕТА
-document.getElementById('answer').addEventListener('input', function() {
-    if ((document.getElementById('answer').value).toLowerCase() === 'ё') {
-        document.getElementById('answer').value = 'е'
+elements.answer.addEventListener('input', function() {
+    if ((elements.answer.value).toLowerCase() === 'ё') {
+        elements.answer.value = 'е'
     }
-    if ((document.getElementById('answer').value).toLowerCase() === ' ') {
-        document.getElementById('answer').value = ''
+    if (elements.answer.value === ' ') {
+        elements.answer.value = ''
     }
 })
 // создание функции при введении ответа
 document.getElementById('answerForm').addEventListener('submit', function() {
     event.preventDefault()
     answerQty += 1
-    document.getElementById('answerQty').textContent = `Ответов: ${answerQty}`
-    if ((document.getElementById('answer').value).toLowerCase() === correctLetter) {
+    elements.answer.textContent = `Ответов: ${answerQty}`
+    if ((elements.answer.value).toLowerCase() === correctLetter) {
         correctAnswerQty += 1
-        document.getElementById('correctAnswerQty').textContent = `Правильных: ${correctAnswerQty}`
+        elements.correctAnswerQty.textContent = `Правильных: ${correctAnswerQty}`
         // присвоение зеленого цвета правильным ответам
-        document.getElementById('correctAnswerQty').style.color = 'green'
+        elements.correctAnswerQty.style.color = 'green'
         // присвоение стандартного цвета неправильным ответам
-        document.getElementById('wrongAnswerQty').style.color = 'black'
+        elements.wrongAnswerQty.style.color = 'black'
         // удаление правильно отвеченного слова
         words = words.filter(item => {
             return item.text != deleteWord
@@ -113,12 +122,12 @@ document.getElementById('answerForm').addEventListener('submit', function() {
         } else {
         // если ответ неправильный, то увеличение количества неправильных ответов на 1 и их отображение
         wrongAnswerQty += 1
-        document.getElementById('wrongAnswerQty').textContent = `Неправильных: ${wrongAnswerQty}`
+        elements.wrongAnswerQty.textContent = `Неправильных: ${wrongAnswerQty}`
         // присвоение красного цвета неправильным ответам
-        document.getElementById('wrongAnswerQty').style.color = 'red'
+        elements.wrongAnswerQty.style.color = 'red'
         // присвоение стандартного цвета правильным ответам
-        document.getElementById('correctAnswerQty').style.color = 'black'
+        elements.correctAnswerQty.style.color = 'black'
     }
     newWord()
-    document.getElementById('answer').value = ''
+    elements.answer.value = ''
 })
