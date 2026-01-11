@@ -106,7 +106,7 @@ document.getElementById('answerForm').addEventListener('submit', function() {
     event.preventDefault()
     answerQty += 1
     elements.answerQty.textContent = `Ответов: ${answerQty}`
-    if ((elements.answer.value).toLowerCase() != correctLetter) {
+    if ((elements.answer.value).toLowerCase() === correctLetter) {
         correctAnswerQty += 1
         elements.correctAnswerQty.textContent = `Правильных: ${correctAnswerQty}`
         // присвоение зеленого цвета правильным ответам
