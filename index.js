@@ -30,6 +30,7 @@ buttons.forEach((item) => buttonsState[item.id] = false)
 // список элементов
 const elements = {
     answer: document.getElementById('answer'),
+    wordDiv: document.getElementsByClassName('main-word')[0],
     alert: document.getElementById('alert'),
     word: document.getElementById('word'),
     correctAnswerQty: document.getElementById('correctAnswerQty'),
@@ -83,10 +84,14 @@ buttons.forEach(function(item) {
         buttonsState[item.id] = !buttonsState[item.id]
         if (buttonsState[item.id]) {
             words = words.concat(allWords[item.id])
-            item.style.color = 'green'
+            item.style.color = '#FFFFFF'
+            item.style.backgroundColor = '#3B82F6'
+            item.style.transform = 'scale(0.95)'
         } else {
             words = words.filter(a => !allWords[item.id].includes(a))
-            item.style.color = 'black'
+            item.style.color = '#334155'
+            item.style.backgroundColor = '#FFFFFF'
+            item.style.transform = 'scale(1)'
         }
         newWord()
         isTypesFunc()
@@ -110,7 +115,9 @@ document.getElementById('answerForm').addEventListener('submit', function() {
         correctAnswerQty += 1
         elements.correctAnswerQty.textContent = `Правильных: ${correctAnswerQty}`
         // присвоение зеленого цвета правильным ответам
-        elements.correctAnswerQty.style.color = 'green'
+        elements.correctAnswerQty.style.color = '#22C55E'
+        elements.wordDiv.classList.add('success')
+        setTimeout(() => {elements.wordDiv.classList.remove('success')}, 300)
         // присвоение стандартного цвета неправильным ответам
         elements.wrongAnswerQty.style.color = 'black'
         // удаление правильно отвеченного слова
@@ -124,10 +131,14 @@ document.getElementById('answerForm').addEventListener('submit', function() {
         wrongAnswerQty += 1
         elements.wrongAnswerQty.textContent = `Неправильных: ${wrongAnswerQty}`
         // присвоение красного цвета неправильным ответам
-        elements.wrongAnswerQty.style.color = 'red'
+        elements.wrongAnswerQty.style.color = '#EF4444'
+        elements.wordDiv.classList.add('fail')
+        setTimeout(() => {elements.wordDiv.classList.remove('fail')}, 300)
         // присвоение стандартного цвета правильным ответам
         elements.correctAnswerQty.style.color = 'black'
     }
     newWord()
     elements.answer.value = ''
 })
+
+console.log(elements)
